@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Style Sampler</title>
+  <style>
+    body { margin:0; font-family: sans-serif; }
+    section { padding:2rem; border-bottom:1px solid #ddd; }
+    header h1 { margin:0 0 .5rem; }
+    p { margin: .5rem 0 1rem; }
+    img { width:200px; display:block; cursor:pointer; }
+  </style>
+</head>
+<body>
+
+  <section style="background:#fff;">
+    <header><h1 style="color:#001f3f;">1. Minimalist Modern</h1></header>
+    <p>Clean lines and navy accents.</p>
+    <img src="https://via.placeholder.com/200"
+         style="transition: transform .3s;"
+         onmouseover="this.style.transform='translateY(-10px)'"
+         onmouseout="this.style.transform='translateY(0)'">
+  </section>
+
+  <section style="background:#0B1F3A;">
+    <header><h1 style="color:#E3E6EB;">2. Dark-Mode Chic</h1></header>
+    <p style="color:#ccc;">Sleek on navy canvas.</p>
+    <img src="https://via.placeholder.com/200"
+         style="filter: brightness(.8); transition: filter .2s;"
+         onmouseover="this.style.filter='brightness(1)'"
+         onmouseout="this.style.filter='brightness(.8)'">
+  </section>
+
+  <section style="background:#f5f5f5;">
+    <header><h1 style="color:#001f3f;">3. Card-Based Professional</h1></header>
+    <p style="color:#444;">Structured as navy cards.</p>
+    <div style="display:inline-block; padding:1rem; background:#fff;
+                box-shadow:0 2px 6px rgba(0,0,0,0.1); transition: transform .2s;"
+         onmouseover="this.style.transform='translateY(-5px)'"
+         onmouseout="this.style.transform='translateY(0)'">
+      <img src="https://via.placeholder.com/200">
+    </div>
+  </section>
+
+  <section style="background:linear-gradient(135deg,#001f3f,#004080);">
+    <header><h1 style="color:#fff;">4. Glassmorphic Elegance</h1></header>
+    <p style="color:#eee;">Frosted panels on navy.</p>
+    <div style="background:rgba(255,255,255,0.2);backdrop-filter:blur(10px);
+                padding:1rem; transition: backdrop-filter .3s;"
+         onmouseover="this.style.backdropFilter='blur(15px)'"
+         onmouseout="this.style.backdropFilter='blur(10px)'">
+      <img src="https://via.placeholder.com/200">
+    </div>
+  </section>
+
+  <section style="background:#e0e0e0;">
+    <header><h1 style="color:#001f3f;">5. Neumorphic Soft UI</h1></header>
+    <p style="color:#444;">Soft shadows and navy text.</p>
+    <div style="display:inline-block; padding:1rem; background:#e0e0e0; border-radius:12px;
+                box-shadow:6px 6px 16px #bebebe, -6px -6px 16px #ffffff; transition: box-shadow .2s;"
+         onmouseover="this.style.boxShadow='inset 3px 3px 6px #bebebe, inset -3px -3px 6px #ffffff'"
+         onmouseout="this.style.boxShadow='6px 6px 16px #bebebe, -6px -6px 16px #ffffff'">
+      <img src="https://via.placeholder.com/200" style="border-radius:8px;">
+    </div>
+  </section>
+
+  <section style="background:#fff;">
+    <header><h1 style="color:#001f3f;">6. Illustrative Storytelling</h1></header>
+    <p style="color:#333;">Line-art meets navy.</p>
+    <img src="https://via.placeholder.com/200.svg"
+         style="transition: transform .4s, opacity .4s; opacity:.8;"
+         onmouseover="this.style.transform='scale(1.05)'; this.style.opacity='1';"
+         onmouseout="this.style.transform='scale(1)'; this.style.opacity='.8';">
+  </section>
+
+  <section style="background:#fff;">
+    <header><h1 style="color:#001f3f; font-family:monospace; border-bottom:4px solid #001f3f;">
+      7. Brutalist Tech</h1></header>
+    <p style="font-family:monospace; color:#000;">Bold and unapologetic.</p>
+    <img src="https://via.placeholder.com/200"
+         style="transition: opacity .1s;"
+         onmouseover="this.style.opacity='.6';"
+         onmouseout="this.style.opacity='1';">
+  </section>
+
+  <section style="background:#f0f8ff;">
+    <header><h1 style="color:#001f3f;">8. Interactive Timeline</h1></header>
+    <p style="color:#333;">Drag to explore my journey.</p>
+    <img src="https://via.placeholder.com/200"
+         style="cursor:grab; transition: box-shadow .3s;"
+         onmouseover="this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)'"
+         onmouseout="this.style.boxShadow='none'">
+  </section>
+
+</body>
+</html>
