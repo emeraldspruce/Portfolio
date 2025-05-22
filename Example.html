@@ -1,62 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nicholas Spruce | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
 <body>
   <header>
     <nav class="navbar">
-      <div class="logo">Nicholas Spruce</div>
-      <button class="menu-toggle" id="menu-toggle">☰</button>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="#contact" class="nav-link">Contact Me</a>
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Hi, I'm Nicholas</h1>
-      <p>A Computer Engineering student passionate about embedded systems, simulation, and making ideas tangible.</p>
-    </div>
-  </section>
+  <main class="content-container">
 
-  <section class="highlight">
-    <h2>Highlighted Projects</h2>
-    <div class="project-preview">
-      <div class="card">
-        <video controls>
-          <source src="assets/demo.mp4" type="video/mp4">
-        </video>
-        <div class="card-content">
-          <p>This simulation demonstrates fluid motion powered by microcontrollers and WebAssembly.</p>
-          <a href="projects.html">View All Projects →</a>
-        </div>
+    <section class="hero">
+      <img class="hero-avatar" src="assets/me.jpg" alt="Nicholas Spruce">
+      <div class="hero-text">
+        <h1>Welcome to My Portfolio</h1>
+        <p>I’m a Computer Engineering student passionate about embedded systems and simulations.</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer id="contact">
-    <h2>Contact Me</h2>
-    <form class="contact-form">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-    <p>Want my resume or transcript? <a href="assets/resume.pdf" target="_blank">Click here</a>.</p>
-  </footer>
+    <!-- … other sections: projects cards, about blurb, contact form … -->
 
-  <script>
-    document.getElementById('menu-toggle').addEventListener('click', () => {
-      document.getElementById('nav-links').classList.toggle('open');
-    });
-  </script>
+  </main>
 </body>
-</html>
