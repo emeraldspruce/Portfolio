@@ -1,0 +1,14 @@
+{ // ctrl + shift + b -> run this task
+  "version": "2.0.0",
+  "command": "bash",
+  "args": [
+    "-c",
+    // convert the Linux path → Windows path, then quote it for explorer.exe
+    "explorer.exe \"$(wslpath -w '${file}')\""
+  ],
+  "windows": {
+    // when you’re editing/running *from Windows* (not WSL), you can still just do this:
+    "command": "explorer.exe",
+    "args": ["${file}"]
+  }
+}
