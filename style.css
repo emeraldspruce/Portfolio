@@ -6,58 +6,12 @@
 * -Uniform header color: ???
 * -Border radius: 50% for most images
 * -navy blue: #0B1F3A
-* -Grey: 
+* -Grey: #2c312d
 */
 
-/* 1. Make the navbar stick to the top */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: rgb(54, 53, 53);        /* or whatever background you want */
-  padding: 1rem;            /* adjust to taste */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* optional drop-shadow */
-  z-index: 1000;
-}
-
-/* 2. Prevent your fixed navbar from covering the page content */
-body {
-  padding-top: calc(1rem + 1em + 2px); /* = navbar’s vertical padding + nav-link font-size + any borders */
-  /* tweak this value until your <main> sits just below the navbar */
-}
-
-/* 3. Style all links in the nav as plain text by default */
-.nav-link {
-  color: black;
-  text-decoration: none;
-  margin: 0 1rem;
-  font-weight: normal;
-}
-
-/* 4. But force the very first link (Home) to always look like a traditional hyperlink */
-.navbar .nav-link:first-child {
-  color: blue;
-  text-decoration: underline;
-  font-weight: normal;  /* or bold, your call */
-}
-
-/* 2) The raised white panel */
-.content-container {
-  background: #fff;           /* white “paper” */
-  max-width: 960px;           /* limit line‐length on large screens */
-  margin: 2rem auto;          /* vertical breathing room + center */
-  padding: 2rem;              /* inner spacing */
-  border-radius: 8px;         /* soften the corners */
-  box-shadow: 
-    0 4px 12px rgba(0,0,0,0.08),   /* soft drop shadow */
-    0 2px  6px rgba(0,0,0,0.04);
-}
-
-/* 3) Responsive padding on small viewports */
-@media (max-width: 600px) {
-  .content-container {
-    margin: 1rem;
-    padding: 1rem;
-  }
+img {
+    border-radius: 50%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #0B1F3A;
 }
