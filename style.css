@@ -6,12 +6,62 @@
 * -Uniform header color: ???
 * -Border radius: 50% for most images
 * -navy blue: #0B1F3A
-* -Grey: #2c312d
+* -Grey: #2c2f31
+* -Light grey: #646b6b
 */
 
+
 img {
-    border-radius: 50%;
     border-width: 5px;
+    font-size: 10px;
     border-style: solid;
-    border-color: #0B1F3A;
+    border-color: #143662;
+    box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+.circIMG {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+
+.squareIMG {
+    width: 100px;
+    height: 100px;
+    border-radius: 0%;
+}
+
+
+body {
+    font-family: 'Lexend', sans-serif;
+    font-size: 21px;
+}
+
+
+p { /* Use for all regular body text*/
+    color: #646b6b;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.nav-link {
+    color: #cdd5d5;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-link.active {
+    color: #1575f3;
+    text-decoration: underline;
+}
+
+
+h2 { /* Use for general headers*/
+    color: #2c2f31;
+    font-weight: bold;
+    font-size: 30px;
 }
