@@ -10,7 +10,7 @@
 * -Light grey: #646b6b
 */
 
-@media (max-width: 768px) {
+
 img {
     border-width: 5px;
     font-size: 10px;
@@ -99,5 +99,4 @@ h2 { /* Use for general headers*/
     color: #2c2f31;
     font-weight: bold;
     font-size: 30px;
-}
 }
