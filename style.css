@@ -37,18 +37,22 @@ img {
 .navbar {
     position: fixed;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: max-content; /* only as wide as needed to fit content */
     padding: 0.5rem 1rem;
-    background-color: #2c2f31; /* or your desired background */
+    background-color: #2c2f31;
     z-index: 1000;
     display: flex;
     gap: 2rem; /* space between nav links */
     align-items: center;
     border-bottom: 10px solid #143662;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    max-width: 900px;
 }
 
 /* Contains the main content of the page with white body */
@@ -84,6 +88,8 @@ a:hover {
 }
 
 .nav-link {
+    font-size: 1rem;
+    padding: 0.5rem;
     color: #cdd5d5;
     font-weight: bold;
     text-decoration: none;
