@@ -21,15 +21,22 @@ img {
   position: relative;
   z-index: 2;
   padding-top: 1rem;
+  padding-bottom: 4rem;
 }
 
 .overlap.circle {
   vertical-align: top;
 }
 
-.overlap.left { flex-direction: row; }
+.overlap.left { 
+  flex-direction: row; 
+  padding-right: 3rem;
+}
 
-.overlap.right { flex-direction: row-reverse; }
+.overlap.right { 
+  flex-direction: row-reverse; 
+  padding-left: 3rem;
+}
 
 .text-block { flex: 1; }
 
