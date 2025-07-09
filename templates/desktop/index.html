@@ -1,46 +1,14 @@
-<!DOCTYPE html>
-<html lang="en-US">
+{% extends 'base.html' %}
 
-<head>
-    <title>Homepage | Nicholas Spruce</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="Desktop.css">
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-</head>
+{% block title %}{{ title }}{% endblock %}
+{% set active = 'about' %}
 
-<body>
-    <header>
-      <nav class="navbar" id="navbar">
-        <a href="index.html" class="nav-link active">Home</a>
-        <a href="about_me.html" class="nav-link">About Me</a>
-        <a href="projects.html" class="nav-link">Projects</a>
-        <a href="course_work.html" class="nav-link">Course Work</a>
-        <a href="contact_me.html" class="nav-link">Contact Me</a>
-        <img src="/images/white_tree.png" alt="White spruce tree logo" style="height:50px;width:50px;border-width:0px;box-shadow:none;">
-      </nav>
-    </header>
-
-    <main>
-      <div class="overlap left">
-          <img src="/images/cover_nick_spruce.jpg" alt="Cover photo for Nicholas Spruce" class="circle">
-          <div class="text-block">
-              <h2>Welcome to my Home Page!</h2>
-              <p>Here you will find a brief summary and examples of plenty of my work from 
-                personal projects and course work to professional experiences and research.<br><br>
-                Additionally, on some pages you can learn more about how to contact me, some 
-                information on my personal life, as well as some fun simulations or interactive portions.<br><br>
-                Please, reach out with any questions, comments, or related inquiry!<br><br>
-                Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos. Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos. Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos. Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos. Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-              </p>
-          </div>
-      </div>
-    </main>
-
-    <!-- Scripts -->
-    <script src="/JavaScript/sync-width.js"></script>
-
-</body>
-
-</html>
+{% block content %}
+<div class="overlap left">
+    <img src="{{ url_for('static', filename='images/cover_nick_spruce.jpg') }}" alt="Cover photo for Nicholas Spruce" class="circle">
+    <div class="text-block">
+        <h2>{{ home_title }}</h2>
+        <p>{{ bio_text }}</p>
+    </div>
+</div>
+{% endblock %}

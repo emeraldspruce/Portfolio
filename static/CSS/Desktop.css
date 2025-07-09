@@ -122,6 +122,10 @@ h2 {
 
 p { color: #646b6b; }
 
+.preserve-breaks {
+  white-space: pre-line;
+}
+
 /* Links */
 
 a:hover { text-decoration: underline; }

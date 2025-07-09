@@ -1,26 +1,79 @@
-<!DOCTYPE html>
-<html lang="en-US">
+{% extends 'base.html' %}
 
-<head>
-    <title>About Me | Nicholas Spruce</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="Desktop.css">
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-</head>
+{% block title %}{{ title }}{% endblock %}
+{% set active = 'home' %}
 
-<body>
-    <header>
-      <nav class="navbar" id="navbar">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="about_me.html" class="nav-link active">About Me</a>
-        <a href="projects.html" class="nav-link">Projects</a>
-        <a href="course_work.html" class="nav-link">Course Work</a>
-        <a href="contact_me.html" class="nav-link">Contact Me</a>
-        <img src="/images/white_tree.png" alt="White spruce tree logo" style="height:50px;width:50px;border-width:0px;box-shadow:none;">
-      </nav>
-    </header>
+{% block content %}
+<div class="overlap left">
+    <img src="{{ url_for('static', filename='images/cover_nick_spruce.jpg') }}" alt="Cover photo for Nicholas Spruce" class="circle">
+    <div class="text-block">
+        <h2>{{ about_title }}</h2>
+        <p>{{ about_text }}</p>
+    </div>
+</div>
+
+<div class="overlap right">
+    <img src="{{ url_for('static', filename='images/cover_nick_spruce.jpg') }}" alt="Cover photo for Nicholas Spruce" class="circle">
+    <div class="text-block">
+        <h2>{{ career_title }}</h2>
+        <p>{{ career_text }}</p>
+    </div>
+</div>
+
+<div class="overlap left">
+    <img src="{{ url_for('static', filename='images/cover_nick_spruce.jpg') }}" alt="Cover photo for Nicholas Spruce" class="circle">
+    <div class="text-block">
+        <h2>{{ projects_title }}</h2>
+        <p>{{ projects_text }}</p>
+    </div>
+</div>
+
+<div class="overlap right">
+    <img src="{{ url_for('static', filename='images/cover_nick_spruce.jpg') }}" alt="Cover photo for Nicholas Spruce" class="circle">
+    <div class="text-block">
+        <h2>{{ choir_title }}</h2>
+        <p>{{ choir_text }}</p>
+    </div>
+</div>
+
+<div class="overlap left">
+    <img src="{{ url_for('static', filename='images/cover_nick_spruce.jpg') }}" alt="Cover photo for Nicholas Spruce" class="circle">
+    <div class="text-block">
+        <h2>{{ running_title }}</h2>
+        <p>{{ running_text }}</p>
+    </div>
+</div>
+
+<div class="overlap right">
+    <img src="{{ url_for('static', filename='images/cover_nick_spruce.jpg') }}" alt="Cover photo for Nicholas Spruce" class="circle">
+    <div class="text-block">
+        <h2>{{ lifting_title }}</h2>
+        <p>{{ lifting_text }}</p>
+    </div>
+</div>
+
+<div class="overlap left">
+    <img src="{{ url_for('static', filename='images/cover_nick_spruce.jpg') }}" alt="Cover photo for Nicholas Spruce" class="circle">
+    <div class="text-block">
+        <h2>{{ gardening_title }}</h2>
+        <p>{{ gardening_text }}</p>
+    </div>
+</div>
+
+<div class="overlap right">
+    <img src="{{ url_for('static', filename='images/cover_nick_spruce.jpg') }}" alt="Cover photo for Nicholas Spruce" class="circle">
+    <div class="text-block">
+        <h2>{{ gaming_title }}</h2>
+        <p>{{ gaming_text }}</p>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
 
     <main>
         <div class="overlap left">
