@@ -41,13 +41,29 @@ about_content = {
                     Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos. Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu."""
     }
 
+@app.route("/")
+def home():
+    return render_template("index.html")
+
 @app.route("/desktop")
 def home_d():
-    return render_template("Desktop/index.html", **home_content)
+    return render_template("desktop/home.html", **home_content)
 
 @app.route("/desktop/about_me")
 def about_d():
-    return render_template("Desktop/index.html", **about_content)
+    return render_template("desktop/about_me.html", **about_content)
+
+@app.route("/desktop/projects")
+def projects_d():
+    return render_template("desktop/projects.html", **about_content)
+
+@app.route("/desktop/course_work")
+def course_work_d():
+    return render_template("desktop/course_work.html", **about_content)
+
+@app.route("/desktop/contact_me")
+def contact_me_d():
+    return render_template("desktop/contact_me.html", **about_content)
 
 if __name__ == "__main__":
     app.run(debug=True)

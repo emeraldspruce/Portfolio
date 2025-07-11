@@ -1,9 +1,9 @@
-{% extends 'base.html' %}
+{% extends 'desktop/base.html' %}
 
 {% block title %}{{ title }}{% endblock %}
-{% set active = 'about' %}
+{% set active = 'home' %}
 
-{% block content %}
+{% block body %}
 <div class="overlap left">
     <img src="{{ url_for('static', filename='images/cover_nick_spruce.jpg') }}" alt="Cover photo for Nicholas Spruce" class="circle">
     <div class="text-block">

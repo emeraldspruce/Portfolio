@@ -105,7 +105,7 @@ main {
     width: var(--navbar-width);
     margin: var(--navbar-height) auto 0 auto;
     border-radius: 3px;
-    background-color: #d2d5d5;
+    background-color: #e5ebeb;/*#d2d5d5;*/
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
     min-height: 100vh;
     display: flex;
