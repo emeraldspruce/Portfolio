@@ -1,12 +1,12 @@
 # app/main.py
 from fastapi import FastAPI, Request, BackgroundTasks, Form, Depends
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, Session
 from .content_loader import load_json
-from .models import Base, Contact, Message
+from .models import Base, Contact, Message, ResumeDownload
 from .emailer import notify_new_contact
 from dotenv import load_dotenv
 import os
@@ -99,3 +99,12 @@ def submit_contact(
 
     # Return a small partial for HTMX to swap into the page
     return templates.TemplateResponse("_contact_result.html", {"request": request, "ok": True})
+
+
+@app.get("/resume", response_class=FileResponse)
+def resume(request: Request, db: Session = Depends(get_db)):
+    db.add(ResumeDownload(ip=request.client.host, user_agent=request.headers.get("user-agent")))
+    db.commit()
+    path = "app/static/resume/Nicholas_Spruce_Resume.pdf"
+    return FileResponse(path, filename="Nicholas_Spruce_Resume.pdf", media_type="application/pdf")
+

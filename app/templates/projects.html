@@ -16,7 +16,7 @@
 
         {% elif b.kind == "img" %}
             <figure style="margin-top:.75rem;">
-              <img src="{{ b.src }}" alt="{{ b.alt or project.title }}" loading="lazy">
+              <img src="{{ url_for('static', path='media/{{ project.src }}') }}" alt="{{ b.alt or project.title }}" loading="lazy">
               {% if b.alt %}<figcaption class="text-sm" style="color:#666;">{{ b.alt }}</figcaption>{% endif %}
             </figure>
         {% endif %}

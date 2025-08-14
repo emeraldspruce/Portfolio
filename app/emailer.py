@@ -7,7 +7,7 @@ load_dotenv()
 
 BREVO_API_KEY = os.getenv("BREVO_API_KEY", "")
 MAIL_FROM = "emeraldspruce2005@gmail.com"
-MAIL_FROM_NAME = os.getenv("MAIL_FROM_NAME", "Portfolio Site")
+MAIL_FROM_NAME = os.getenv("MAIL_FROM_NAME", "My Portfolio")
 MAIL_TO = "emeraldspruce2005@gmail.com"
 BREVO_URL = "https://api.brevo.com/v3/smtp/email"
 

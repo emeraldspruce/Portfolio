@@ -22,3 +22,11 @@ class Message(Base):
     requested_transcript: Mapped[bool] = mapped_column(Boolean, default=False)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
     contact: Mapped[Contact] = relationship(back_populates="messages")
+
+class ResumeDownload(Base):
+    __tablename__ = "resume_downloads"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    ip: Mapped[str | None]
+    user_agent: Mapped[str | None]
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+
