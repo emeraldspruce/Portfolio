@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block main_body %}
+<div class="container">
+  <header class="header">
+    <h1>{{ content.title }}</h1>
+    <p>{{ content.subtitle }}</p>
+  </header>
+
+  {% for section in content.sections %}
+    <section class="card" style="margin-top: 1rem;">
+      <h2>{{ section.heading }}</h2>
+      <p>{{ section.body }}</p>
+    </section>
+  {% endfor %}
+</div>
+{% endblock %}

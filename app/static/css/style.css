@@ -1,0 +1,35 @@
+:root {
+  --primary-color: #0a74da;
+  --secondary-color: #333;
+  --max-width: 1000px;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--secondary-color);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 1rem;
+}
+
+header, footer {
+  background: var(--primary-color);
+  color: white;
+  padding: 1rem;
+}
+
+h1, h2 {
+  margin-top: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 0.5rem;
+  }
+}

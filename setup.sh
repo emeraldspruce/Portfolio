@@ -3,20 +3,53 @@
 # Exit on any error
 set -e
 
-# Create a virtual environment named 'venv'
-python3 -m venv venv
+echo "🐍 Setting up Python environment..."
 
-# Activate the virtual environment
+# -------------------------------------------------
+# Create & activate virtual environment
+# -------------------------------------------------
+if [ ! -d "venv" ]; then
+  python3 -m venv venv
+fi
+
+# shellcheck disable=SC1091
 source venv/bin/activate
 
-# Upgrade pip (optional but recommended)
-pip install --upgrade pip
+# Upgrade pip tooling
+pip install --upgrade pip setuptools wheel
 
-# Install Flask
-pip install flask
+# -------------------------------------------------
+# Install backend dependencies
+# -------------------------------------------------
+pip install \
+  fastapi \
+  uvicorn[standard] \
+  sqlalchemy \
+  psycopg2-binary \
+  jinja2 \
+  python-multipart \
+  pydantic \
+  httpx \
+  alembic
 
-# Deactivate the virtual environment
+# -------------------------------------------------
+# Project folders (if missing)
+# -------------------------------------------------
+mkdir -p app/static/css
+mkdir -p app/static/js
+mkdir -p app/templates
+mkdir -p content
+
+# -------------------------------------------------
+# Freeze Python dependencies
+# -------------------------------------------------
+pip freeze > requirements.txt
+
+# Deactivate venv
 deactivate
 
-echo "✅ Flask installed in virtual environment 'venv'."
-echo "👉 To activate it later, run: source venv/bin/activate"
+echo "✅ Python dependencies installed and saved to requirements.txt"
+echo "📁 Created folders: app/static/css, app/static/js, app/templates, content"
+echo ""
+echo "👉 Activate env:  source venv/bin/activate"
+echo "👉 Run dev server: uvicorn app.main:app --reload"

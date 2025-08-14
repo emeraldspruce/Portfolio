@@ -1,0 +1,9 @@
+{
+    "page_title": "Home | Nicholas Spruce",
+    "title": "Welcome to my Portfolio",
+    "subtitle": "Embedded Systems | Full-Stack Development",
+    "sections": [
+        {"heading": "About Me", "body": "I'm a University of Michigan student studying Computer Engineering. I aspire to do more with my degree than just earn a wage. With my degree I want to affect positive change in this world and work on projects that matter."},
+        {"heading": "Site Methodology", "body": "A resume is nice, but it very quickly drops off old projects and experiences. Its brief nature doesn't give nearly enough detail and history on projects——that I promise——are a lot cooler than a resume blurb will lead you to believe"}
+    ]
+}

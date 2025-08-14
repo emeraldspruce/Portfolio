@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block main_body %}
+<div class="container">
+  {% for section in content.sections %}
+    <section class="card" style="margin-top:1rem;">
+      <h2>{{ section.title }}</h2>
+
+      {% for b in section.blocks %}
+        {% if b.kind == "body" %}
+            <p style="margin-top:.5rem;">{{ b.text }}</p>
+
+        {% elif b.kind == "img" %}
+            <figure style="margin-top:.75rem;">
+              <img src="{{ b.src }}" alt="{{ b.alt or section.title }}" loading="lazy">
+              {% if b.alt %}<figcaption class="text-sm" style="color:#666;">{{ b.alt }}</figcaption>{% endif %}
+            </figure>
+        {% endif %}
+      {% endfor %}
+    </section>
+  {% endfor %}
+</div>
+{% endblock %}
