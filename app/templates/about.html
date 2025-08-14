@@ -1,23 +1,45 @@
 {% extends "base.html" %}
 
 {% block main_body %}
-<div class="container">
-  {% for section in content.sections %}
-    <section class="card" style="margin-top:1rem;">
-      <h2>{{ section.title }}</h2>
+<main class="site-main">
+  <div class="about-alt">
+    {% for section in content.sections %}
+      {% set side = 'left' if loop.index is odd else 'right' %}
 
-      {% for b in section.blocks %}
-        {% if b.kind == "body" %}
-            <p style="margin-top:.5rem;">{{ b.text }}</p>
+      <section class="about-section {{ side }} bubble bubble-lg reveal">
+        <h2 class="section-title">{{ section.title }}</h2>
 
-        {% elif b.kind == "img" %}
-            <figure style="margin-top:.75rem;">
-              <img src="{{ url_for('static', path='media/{{ project.src }}') }}" alt="{{ b.alt or section.title }}" loading="lazy">
-              {% if b.alt %}<figcaption class="text-sm" style="color:#666;">{{ b.alt }}</figcaption>{% endif %}
-            </figure>
-        {% endif %}
-      {% endfor %}
-    </section>
-  {% endfor %}
-</div>
+        {% for b in section.blocks %}
+          {% if b.kind == "body" and b.text %}
+            <p>{{ b.text }}</p>
+
+          {% elif b.kind in ["img","image"] %}
+            {% set src = b.src or b.text %}
+            {% if src %}
+              <figure style="margin-top:.75rem;">
+                <img src="{{ src }}" alt="{{ b.alt or section.title }}" loading="lazy">
+                {% if b.alt %}<figcaption class="section-subtitle">{{ b.alt }}</figcaption>{% endif %}
+              </figure>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </section>
+    {% endfor %}
+  </div>
+</main>
+
+<script>
+  (function(){
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('in-view');
+          io.unobserve(e.target); // uncomment if you want one-time animation
+        }
+      });
+    }, { threshold: 0.15, rootMargin: "0px 0px -10% 0px" });
+    els.forEach(el => io.observe(el));
+  })();
+</script>
 {% endblock %}

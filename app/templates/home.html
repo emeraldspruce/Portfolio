@@ -1,31 +1,42 @@
 {% extends "base.html" %}
 
 {% block main_body %}
-<div class="container">
-  <header class="header">
-    <h1>{{ content.title }}</h1>
-    <p>{{ content.subtitle }}</p>
-    <a href="/resume">Download my resume (PDF)</a>
-  </header>
+<main class="site-main">
+  <!-- Hero bubble -->
+  <section class="bubble bubble-lg">
+    <div class="bubble bubble-accent-navy" style="margin-bottom: 1em;">
+    <h1 class="section-title" style="color:#e8f3fb">{{ content.title }}</h1>
+    {% if content.subtitle %}
+      <p class="section-subtitle" style="color:#c3c3c3">{{ content.subtitle }}</p>
+    {% endif %}
+    </div>
+    <a href="/resume" class="btn">Download my resume (PDF)</a>
+  </section>
 
+  <!-- Content sections -->
   {% for section in content.sections %}
-    <section class="card" style="margin-top: 1rem;">
-      <h2>{{ section.heading }}</h2>
+    <section class="bubble bubble-lg" style="margin-top:1rem;">
+      <h2 class="section-title">{{ section.heading }}</h2>
+      {% if section.subheading %}<p class="section-subtitle">{{ section.subheading }}</p>{% endif %}
       <p>{{ section.body }}</p>
     </section>
   {% endfor %}
 
-  <section style="margin-top:1rem;">
-    <h2>Featured Projects</h2>
+  <!-- Featured Projects -->
+  <section class="bubble bubble-lg" style="margin-top:1rem;">
+    <h2 class="section-title">Featured Projects</h2>
     <div class="grid grid-2" style="margin-top:.5rem;">
       {% for p in projects[:4] %}
-        <div class="card">
-          <h1><a href="/projects/{{ p.slug }}">{{ p.title }}</a></h2>
-          {% if p.thumbnail %}<img src="{{ p.thumbnail }}" alt="{{ p.alt }}">{% endif %}
-          {% if p.blurb %}<p>{{ p.blurb }}</p>{% endif %}
-        </div>
+        <article class="bubble">
+          {% if p.thumbnail %}
+            <img src="{{ p.thumbnail }}" alt="{{ p.alt or p.title }}" loading="lazy">
+          {% endif %}
+          <h3 class="section-title" style="margin-top:.75rem;">{{ p.title }}</h3>
+          {% if p.blurb %}<p class="section-subtitle">{{ p.blurb }}</p>{% endif %}
+          <a href="/projects/{{ p.slug }}" class="btn">View project</a>
+        </article>
       {% endfor %}
     </div>
   </section>
-</div>
+</main>
 {% endblock %}

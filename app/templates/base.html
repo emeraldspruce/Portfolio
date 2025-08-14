@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ content.page_title if content and content.page_title else 'Portfolio | Nicholas Spruce' }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', path='media/favicon.ico') }}">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ content.page_title if content and content.page_title else 'Portfolio | Nicholas Spruce' }}</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', path='media/favicon.ico') }}">
 </head>
 
 <body>
-    <nav class="header">
-        <a href="/">Home</a> |
-        <a href="/about">About</a> |
-        <a href="/projects">Projects</a> |
-        <a href="/contact_me">Contact Me</a>
-    </nav>
+  <!-- Sticky, centered nav -->
+  <header class="site-header">
+    <nav class="nav-bubble" role="navigation" aria-label="Primary">
+      <a href="/" class="nav-link {% if request.url.path == '/' %}is-active{% endif %}">Home</a>
+      <a href="/about" class="nav-link {% if request.url.path.startswith('/about') %}is-active{% endif %}">About</a>
+      <a href="/projects" class="nav-link {% if request.url.path.startswith('/projects') %}is-active{% endif %}">Projects</a>
+      <a href="/contact_me" class="nav-link {% if request.url.path.startswith('/contact_me') %}is-active{% endif %}">Contact Me</a>
+  </nav>
+  </header>
 
+  <main class="site-main">
     {% block main_body %}{% endblock %}
+  </main>
 
-    <footer class="footer">
-        <p>© {{ 2025 }} Nicholas Spruce</p>
-    </footer>
+  <footer class="site-footer">
+    <p>© {{ 2025 }} Nicholas Spruce</p>
+  </footer>
 
-    <script src="https://unpkg.com/htmx.org@2.0.3"></script>
+  <script src="https://unpkg.com/htmx.org@2.0.3"></script>
 </body>
 </html>

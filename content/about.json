@@ -4,8 +4,8 @@
         {
             "title": "About Me",
             "blocks": [
-                { "kind": "body", "text": "NONE" },
-                { "kind": "img", "src": "PATH", "alt": "alt text" }
+                { "kind": "body", "text": "I am a student at the University of Michigan studying Computer Engineering" },
+                { "kind": "img", "src": "selfie", "alt": "selfie of me smiling" }
             ]
         },
         {
