@@ -1,13 +1,41 @@
 {% extends "base.html" %}
 
 {% block main_body %}
-<div class="container">
-  {% for p in content.projects %}
-    <section class="card" style="margin-top:1rem;">
-      <h1><a href="/projects/{{ p.slug }}">{{ p.title }}</a></h2>
-      {% if p.thumbnail %}<img src="{{ p.thumbnail }}" alt="{{ p.alt }}">{% endif %}
-      {% if p.blurb %}<p>{{ p.blurb }}</p>{% endif %}
-    </section>
-  {% endfor %}
-</div>
+<main class="site-main">
+  <div class="about-alt">
+    {% for p in content.projects %}
+      {% set side = 'left' if loop.index is odd else 'right' %}
+      <section class="about-section {{ side }} bubble bubble-lg reveal">
+        <h2 class="section-title">{{ p.title }}</h2>
+
+        {% if p.thumbnail %}
+          <figure style="margin-top:.5rem;">
+            <img src="{{ p.thumbnail }}" alt="{{ p.alt or p.title }}" loading="lazy">
+          </figure>
+        {% endif %}
+
+        {% if p.blurb %}
+          <p class="section-subtitle" style="margin-top:.5rem;">{{ p.blurb }}</p>
+        {% endif %}
+
+        <a href="/projects/{{ p.slug }}" class="btn" style="margin-top:.5rem;">View project</a>
+      </section>
+    {% endfor %}
+  </div>
+
+  <script>
+    // Same slow, staggered reveal as About
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => entry.target.classList.add("in-view"), i * 150);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: "0px 0px -10% 0px" });
+
+      document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+    });
+  </script>
+</main>
 {% endblock %}

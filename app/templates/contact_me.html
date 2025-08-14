@@ -1,41 +1,67 @@
 {% extends "base.html" %}
 
 {% block main_body %}
-<div class="container">
-  <h1>{{ content.title or "Contact Me" }}</h1>
-  {% if content.subtitle %}<p>{{ content.subtitle }}</p>{% endif %}
+<main class="site-main">
+  <!-- Hero/intro bubble -->
+  <section class="bubble bubble-lg bubble-accent-navy reveal" style="margin-bottom:1rem;">
+    <h1 class="section-title" style="color:#e8f3fb">{{ content.title or "Contact Me" }}</h1>
+    {% if content.subtitle %}
+      <p class="section-subtitle">{{ content.subtitle }}</p>
+    {% endif %}
+  </section>
 
-  <form
-    class="card"
-    style="margin-top:1rem; display:flex; flex-direction:column; gap:.75rem;"
-    hx-post="/api/contact_me"
-    hx-target="#contact-status"
-    hx-swap="innerHTML"
-  >
-    <label>
-      Name
-      <input type="text" name="name" required class="w-full">
-    </label>
+  <!-- Form bubble -->
+  <section class="bubble bubble-lg reveal" style="max-width: 860px; margin: 0 auto;">
+    <form
+      class="form-grid"
+      method="post"
+      action="/api/contact_me"
+      hx-post="/api/contact_me"
+      hx-target="#contact-status"
+      hx-swap="innerHTML"
+    >
+      <div class="form-row">
+        <label for="name" class="form-label">Name</label>
+        <input id="name" name="name" type="text" required class="input">
+      </div>
 
-    <label>
-      Email
-      <input type="email" name="email" required class="w-full">
-    </label>
+      <div class="form-row">
+        <label for="email" class="form-label">Email</label>
+        <input id="email" name="email" type="email" required class="input">
+      </div>
 
-    <label>
-      Message
-      <textarea name="message" rows="5" required class="w-full"></textarea>
-    </label>
+      <div class="form-row form-row-full">
+        <label for="message" class="form-label">Message</label>
+        <textarea id="message" name="message" rows="6" required class="textarea"></textarea>
+      </div>
 
-    <label style="display:flex; gap:.5rem; align-items:center;">
-      <input type="checkbox" name="requested_transcript">
-      Request my transcript
-    </label>
+      <div class="form-row form-row-inline">
+        <label class="checkbox">
+          <input type="checkbox" name="requested_transcript">
+          <span>Request my transcript</span>
+        </label>
+      </div>
 
-    <button type="submit" class="btn">Send</button>
+      <div class="form-actions">
+        <button type="submit" class="btn">Send</button>
+        <div id="contact-status" class="status" aria-live="polite"></div>
+      </div>
+    </form>
+  </section>
 
-    <!-- HTMX will replace this with the server’s partial -->
-    <div id="contact-status"></div>
-  </form>
-</div>
+  <script>
+    // Slow, staggered reveal like the other pages
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => entry.target.classList.add("in-view"), i * 150);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: "0px 0px -10% 0px" });
+
+      document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+    });
+  </script>
+</main>
 {% endblock %}

@@ -1,23 +1,50 @@
 {% extends "base.html" %}
 
 {% block main_body %}
-<div class="container">
-  <nav style="margin-bottom:1rem;"><a href="/projects">← All projects</a></nav>
-  <article class="card">
-    <h1>{{ project.title }}</h1>
+<main class="site-main">
 
+  <!-- Hero / title -->
+  <section class="bubble bubble-lg bubble-accent-navy reveal" style="max-width: 860px; margin: 0 auto 1rem;">
+    <h1 class="section-title" style="margin:0;color:#e8f3fb;">{{ project.title }}</h1>
+    {% if project.subtitle %}
+      <p class="section-subtitle" style="margin-top:.25rem;">{{ project.subtitle }}</p>
+    {% endif %}
+  </section>
+
+  <!-- Content blocks (in JSON order) -->
+  <article class="bubble bubble-lg reveal prose" style="max-width: 860px; margin: 0 auto;">
     {% for b in project.blocks %}
-      {% if b.kind == "header" %}
-        <h2>{{ b.text }}</h3>
+      {% if b.kind == "section_title" %}
+        <h2 class="section-title">{{ b.text }}</h2>
+
+      {% elif b.kind == "header" %}
+        <h3 class="section-title" style="margin-top:1rem;">{{ b.text }}</h3>
+
       {% elif b.kind == "body" %}
         <p>{{ b.text }}</p>
+
       {% elif b.kind in ["image","img"] %}
-        <figure style="margin: .75rem 0;">
+        <figure class="figure">
           <img src="{{ b.src or b.text }}" alt="{{ b.alt or project.title }}" loading="lazy">
-          {% if b.alt %}<figcaption style="color:#666; font-size:.9em;">{{ b.alt }}</figcaption>{% endif %}
+          {% if b.alt %}<figcaption class="figure-cap">{{ b.alt }}</figcaption>{% endif %}
         </figure>
       {% endif %}
     {% endfor %}
   </article>
-</div>
+
+  <script>
+    // Slow, staggered reveal (same feel as About/Projects)
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => entry.target.classList.add("in-view"), i * 150);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: "0px 0px -10% 0px" });
+
+      document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+    });
+  </script>
+</main>
 {% endblock %}

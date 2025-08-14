@@ -6,7 +6,22 @@
       "title": "Fluid Simulation Pendant",
       "thumbnail": "/static/media/",
       "alt": "KiCad PCB image",
-      "blurb": "178 microLEDs with FLIP-style motion",
+      "blurb": "178 microLEDs with FLIP-style motion.",
+      "blocks": [
+        { "kind": "header", "text": "Goal" },
+        { "kind": "body", "text": "I designed a 1\" pendant using STM32L011 + ATtiny1626..." },
+        { "kind": "image", "src": "/static/media/pendant/hero.webp", "alt": "Pendant v1" },
+        { "kind": "header", "text": "Hardware" },
+        { "kind": "body", "text": "BMI270 for motion; charlieplexing to 178 LEDs..." },
+        { "kind": "image", "src": "/static/media/pendant/pcb.png", "alt": "PCB layout" }
+      ]
+    },
+    {
+      "slug": "search-engine",
+      "title": "System Design of a Search Engine",
+      "thumbnail": "/static/media/",
+      "alt": "Command line search results",
+      "blurb": "Startup-style team designing a search engine from the ground up.",
       "blocks": [
         { "kind": "header", "text": "Goal" },
         { "kind": "body", "text": "I designed a 1\" pendant using STM32L011 + ATtiny1626..." },

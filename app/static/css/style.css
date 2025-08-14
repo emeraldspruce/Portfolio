@@ -244,3 +244,75 @@ body {
     grid-column: 1 / -1;
   }
 }
+
+/* ============ Forms ============ */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.25rem;
+}
+
+.form-row { display: flex; flex-direction: column; gap: .35rem; }
+.form-row-full { grid-column: 1 / -1; }
+.form-row-inline { grid-column: 1 / -1; display: flex; align-items: center; }
+
+.form-label {
+  font-weight: 600;
+  color: var(--blue-900);
+  letter-spacing: .2px;
+}
+
+.input, .textarea {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #e3e9ef;
+  border-radius: 10px;
+  padding: .7rem .85rem;
+  font: inherit;
+  color: var(--text);
+  transition: border-color 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
+}
+
+.input:focus, .textarea:focus {
+  outline: 0;
+  border-color: var(--blue-700);
+  box-shadow: 0 0 0 3px var(--ring);
+  background: #fff;
+}
+
+.textarea { resize: vertical; min-height: 160px; }
+
+.checkbox { display: inline-flex; gap: .5rem; align-items: center; color: var(--text); }
+
+.form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin-top: .25rem;
+}
+
+.status { min-height: 1.25rem; color: var(--muted); }
+
+/* Responsive: stack to single column */
+@media (max-width: 720px) {
+  .form-grid { grid-template-columns: 1fr; }
+}
+
+/* Nicer reading rhythm inside long-form content */
+.prose p { margin: .75rem 0; line-height: 1.65; }
+.prose h2, .prose h3 { margin: 1rem 0 .5rem; }
+
+/* Figures */
+.figure { margin: 1rem 0; }
+.figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+.figure-cap {
+  margin-top: .35rem;
+  color: var(--muted);
+  font-size: .95rem;
+}
