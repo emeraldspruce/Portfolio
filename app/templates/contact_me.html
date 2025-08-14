@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block main_body %}
+<div class="container">
+  <h1>{{ content.title or "Contact Me" }}</h1>
+  {% if content.subtitle %}<p>{{ content.subtitle }}</p>{% endif %}
+
+  <form
+    class="card"
+    style="margin-top:1rem; display:flex; flex-direction:column; gap:.75rem;"
+    hx-post="/api/contact_me"
+    hx-target="#contact-status"
+    hx-swap="innerHTML"
+  >
+    <label>
+      Name
+      <input type="text" name="name" required class="w-full">
+    </label>
+
+    <label>
+      Email
+      <input type="email" name="email" required class="w-full">
+    </label>
+
+    <label>
+      Message
+      <textarea name="message" rows="5" required class="w-full"></textarea>
+    </label>
+
+    <label style="display:flex; gap:.5rem; align-items:center;">
+      <input type="checkbox" name="requested_transcript">
+      Request my transcript
+    </label>
+
+    <button type="submit" class="btn">Send</button>
+
+    <!-- HTMX will replace this with the server’s partial -->
+    <div id="contact-status"></div>
+  </form>
+</div>
+{% endblock %}

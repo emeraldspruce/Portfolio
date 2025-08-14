@@ -30,7 +30,8 @@ pip install \
   python-multipart \
   pydantic \
   httpx \
-  alembic
+  alembic \
+  python-dotenv
 
 # -------------------------------------------------
 # Project folders (if missing)
