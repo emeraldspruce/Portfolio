@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ content.page_title if content and content.page_title else 'Portfolio | Nicholas Spruce' }}</title>
-  <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ content.page_title if content and content.page_title else 'Portfolio | Nicholas Spruce' }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', path='media/favicon.ico') }}">
 </head>
 
 <body>
-  <nav class="header">
-    <a href="/">Home</a> |
-    <a href="/about">About</a> |
-    <a href="/projects">Projects</a> |
-    <a href="/contact_me">Contact Me</a>
-  </nav>
+    <nav class="header">
+        <a href="/">Home</a> |
+        <a href="/about">About</a> |
+        <a href="/projects">Projects</a> |
+        <a href="/contact_me">Contact Me</a>
+    </nav>
 
-  {% block main_body %}{% endblock %}
+    {% block main_body %}{% endblock %}
 
-  <footer class="footer">
-    <p>© {{ 2025 }} Nicholas Spruce</p>
-  </footer>
+    <footer class="footer">
+        <p>© {{ 2025 }} Nicholas Spruce</p>
+    </footer>
 </body>
 </html>
