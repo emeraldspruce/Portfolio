@@ -2,25 +2,11 @@
 
 {% block main_body %}
 <div class="container">
-  {% for project in content.projects %}
+  {% for p in content.projects %}
     <section class="card" style="margin-top:1rem;">
-      <h1>{{ project.title }}</h2>
-      <p>{{ project.subtitle }}</p>
-
-      {% for b in project.blocks %}
-        {% if b.kind == "header" %}
-            <h2>{{ b.text }}</h2>
-
-        {% elif b.kind == "body" %}
-            <p>{{ b.text }}</p>
-
-        {% elif b.kind == "img" %}
-            <figure style="margin-top:.75rem;">
-              <img src="{{ url_for('static', path='media/{{ project.src }}') }}" alt="{{ b.alt or project.title }}" loading="lazy">
-              {% if b.alt %}<figcaption class="text-sm" style="color:#666;">{{ b.alt }}</figcaption>{% endif %}
-            </figure>
-        {% endif %}
-      {% endfor %}
+      <h1><a href="/projects/{{ p.slug }}">{{ p.title }}</a></h2>
+      {% if p.thumbnail %}<img src="{{ p.thumbnail }}" alt="{{ p.alt }}">{% endif %}
+      {% if p.blurb %}<p>{{ p.blurb }}</p>{% endif %}
     </section>
   {% endfor %}
 </div>

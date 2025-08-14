@@ -14,5 +14,18 @@
       <p>{{ section.body }}</p>
     </section>
   {% endfor %}
+
+  <section style="margin-top:1rem;">
+    <h2>Featured Projects</h2>
+    <div class="grid grid-2" style="margin-top:.5rem;">
+      {% for p in projects[:4] %}
+        <div class="card">
+          <h1><a href="/projects/{{ p.slug }}">{{ p.title }}</a></h2>
+          {% if p.thumbnail %}<img src="{{ p.thumbnail }}" alt="{{ p.alt }}">{% endif %}
+          {% if p.blurb %}<p>{{ p.blurb }}</p>{% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </section>
 </div>
 {% endblock %}

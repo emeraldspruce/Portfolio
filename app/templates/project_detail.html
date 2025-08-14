@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block main_body %}
+<div class="container">
+  <nav style="margin-bottom:1rem;"><a href="/projects">← All projects</a></nav>
+  <article class="card">
+    <h1>{{ project.title }}</h1>
+
+    {% for b in project.blocks %}
+      {% if b.kind == "header" %}
+        <h2>{{ b.text }}</h3>
+      {% elif b.kind == "body" %}
+        <p>{{ b.text }}</p>
+      {% elif b.kind in ["image","img"] %}
+        <figure style="margin: .75rem 0;">
+          <img src="{{ b.src or b.text }}" alt="{{ b.alt or project.title }}" loading="lazy">
+          {% if b.alt %}<figcaption style="color:#666; font-size:.9em;">{{ b.alt }}</figcaption>{% endif %}
+        </figure>
+      {% endif %}
+    {% endfor %}
+  </article>
+</div>
+{% endblock %}

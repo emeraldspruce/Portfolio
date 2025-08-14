@@ -1,6 +1,6 @@
 # app/main.py
-from fastapi import FastAPI, Request, BackgroundTasks, Form, Depends
-from fastapi.responses import HTMLResponse, FileResponse
+from fastapi import FastAPI, Request, BackgroundTasks, Form, Depends, HTTPException
+from fastapi.responses import HTMLResponse, FileResponse, PlainTextResponse, Response
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from sqlalchemy import create_engine
@@ -49,12 +49,19 @@ ABOUT = load_json("about.json")
 PROJECTS = load_json("projects.json")
 CONTACT_ME = load_json("contact_me.json")
 
+PROJECT_LIST = PROJECTS.get("projects", [])
+PROJECT_BY_SLUG = {p["slug"]: p for p in PROJECT_LIST}
+
 # -------------------------------
-# Pages
+# Main Pages
 # -------------------------------
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request):
-    return templates.TemplateResponse("home.html", {"request": request, "content": HOME})
+    return templates.TemplateResponse("home.html", {
+        "request": request,
+        "content": HOME,
+        "projects": PROJECT_LIST,  # for featured list
+    })
 
 @app.get("/about", response_class=HTMLResponse)
 def about(request: Request):
@@ -68,6 +75,19 @@ def projects(request: Request):
 def contact_me(request: Request):
     # Renders the form; submission handled by /api/contact_me via HTMX
     return templates.TemplateResponse("contact_me.html", {"request": request, "content": CONTACT_ME})
+
+# -------------------------------
+# Unique project pages
+# -------------------------------
+@app.get("/projects/{slug}", response_class=HTMLResponse)
+def project_detail(slug: str, request: Request):
+    project = PROJECT_BY_SLUG.get(slug)
+    if not project:
+        raise HTTPException(status_code=404)
+    return templates.TemplateResponse(
+        "project_detail.html",
+        {"request": request, "project": project}
+    )
 
 # -------------------------------
 # HTMX endpoint for contact form
@@ -100,7 +120,9 @@ def submit_contact(
     # Return a small partial for HTMX to swap into the page
     return templates.TemplateResponse("_contact_result.html", {"request": request, "ok": True})
 
-
+# -------------------------------
+# Resume page
+# -------------------------------
 @app.get("/resume", response_class=FileResponse)
 def resume(request: Request, db: Session = Depends(get_db)):
     db.add(ResumeDownload(ip=request.client.host, user_agent=request.headers.get("user-agent")))
@@ -108,3 +130,37 @@ def resume(request: Request, db: Session = Depends(get_db)):
     path = "app/static/resume/Nicholas_Spruce_Resume.pdf"
     return FileResponse(path, filename="Nicholas_Spruce_Resume.pdf", media_type="application/pdf")
 
+# -------------------------------
+# robots.txt
+# -------------------------------
+@app.get("/robots.txt", response_class=PlainTextResponse)
+def robots_txt(request: Request):
+    return "\n".join([
+        "User-agent: *",
+        "Allow: /",
+        f"Sitemap: {request.url_for('sitemap_xml')}"
+    ])
+
+# -------------------------------
+# sitemap
+# -------------------------------
+@app.get("/sitemap.xml", name="sitemap_xml")
+def sitemap_xml(request: Request):
+    # Always include your core pages
+    urls = [
+        str(request.url_for("home")),
+        str(request.url_for("about")),
+        str(request.url_for("projects")),
+        str(request.url_for("contact_me")),
+    ]
+
+    for p in PROJECT_LIST:
+        urls.append(str(request.url_for("project_detail", slug=p["slug"])))
+
+    xml = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+        *[f"  <url><loc>{u}</loc></url>" for u in urls],
+        "</urlset>",
+    ]
+    return Response("\n".join(xml), media_type="application/xml")

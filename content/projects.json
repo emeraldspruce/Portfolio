@@ -4,7 +4,9 @@
     {
       "slug": "fluid-sim-pendant",
       "title": "Fluid Simulation Pendant",
-      "subtitle": "178 microLEDs with FLIP-style motion",
+      "thumbnail": "/static/media/",
+      "alt": "KiCad PCB image",
+      "blurb": "178 microLEDs with FLIP-style motion",
       "blocks": [
         { "kind": "header", "text": "Goal" },
         { "kind": "body", "text": "I designed a 1\" pendant using STM32L011 + ATtiny1626..." },
@@ -12,28 +14,6 @@
         { "kind": "header", "text": "Hardware" },
         { "kind": "body", "text": "BMI270 for motion; charlieplexing to 178 LEDs..." },
         { "kind": "image", "src": "/static/media/pendant/pcb.png", "alt": "PCB layout" }
-      ]
-    },
-    {
-      "slug": "search-engine",
-      "title": "Distributed Search Engine",
-      "subtitle": "Indexing 100,000+ sites with <5s query time",
-      "blocks": [
-        { "kind": "body", "text": "Built a distributed crawler and query engine using C++ and custom data structures..." },
-        { "kind": "image", "src": "/static/media/search-engine/diagram.webp", "alt": "System diagram" },
-        { "kind": "header", "text": "Performance" },
-        { "kind": "body", "text": "Achieved query responses under five seconds with sharding and failover." }
-      ]
-    },
-    {
-      "slug": "credit-card-tracker",
-      "title": "Credit Card Tracker Web App",
-      "subtitle": "Helps users optimize rewards and track offers",
-      "blocks": [
-        { "kind": "body", "text": "Full-stack Flask app with Firebase auth, SQLite storage, and credit card recommendations." },
-        { "kind": "image", "src": "/static/media/card-tracker/dashboard.webp", "alt": "Dashboard screenshot" },
-        { "kind": "header", "text": "Key Features" },
-        { "kind": "body", "text": "Card management, offer alerts, and integration with financial APIs." }
       ]
     }
   ]
