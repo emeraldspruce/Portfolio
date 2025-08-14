@@ -31,7 +31,8 @@ pip install \
   pydantic \
   httpx \
   alembic \
-  python-dotenv
+  python-dotenv \
+  gunicorn
 
 # -------------------------------------------------
 # Project folders (if missing)
