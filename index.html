@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nicholas Spruce | Links</title>
+  <meta name="description" content="Nicholas Spruce | Quick links to portfolio, LinkedIn, GitHub, and Instagram." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f17;
+      --card: #121826;
+      --text: #e6e9ef;
+      --muted: #9aa4b2;
+      --ring: #7aa2ff;
+
+      /* Brand colors */
+      --linkedin: #0a66c2;
+      --github: #24292f; /* We'll invert text for contrast */
+      --instagram-1: #f58529; /* multi-color gradient start */
+      --instagram-2: #dd2a7b; /* gradient mid */
+      --instagram-3: #8134af; /* gradient end */
+      --website: #10b981; /* teal/emerald for your site */
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: "Lexend", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+      background: radial-gradient(1200px 800px at 50% -10%, #1a2336 0%, var(--bg) 55%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .wrap {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 2rem;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 640px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.0));
+      background-color: var(--card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.04);
+      padding: clamp(1.25rem, 2vw + 1rem, 2rem);
+      text-align: center;
+    }
+
+    .avatar {
+      width: 144px;
+      height: 144px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 1rem;
+      border: 3px solid rgba(255,255,255,0.08);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);
+      margin: 0.25rem 0 0.25rem;
+      line-height: 1.15;
+      letter-spacing: 0.3px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      font-size: 0.975rem;
+    }
+
+    .links {
+      display: grid;
+      gap: 12px;
+      margin-top: 1.25rem;
+    }
+
+    @media (min-width: 520px) {
+      .links { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* Bubble button base */
+    .bubble {
+      --btn-bg: #2b2b2b;
+      --btn-fg: #ffffff;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      min-height: 52px;
+      padding: 0.9rem 1.2rem;
+      border: none;
+      border-radius: 999px; /* big pill */
+      background: var(--btn-bg);
+      color: var(--btn-fg);
+      font-weight: 650;
+      letter-spacing: 0.2px;
+      text-decoration: none;
+      box-shadow:
+        0 10px 24px rgba(0,0,0,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.18);
+      transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+      will-change: transform, box-shadow;
+      outline: none;
+    }
+
+    .bubble::after { /* subtle glossy highlight */
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0) 40%);
+      pointer-events: none;
+      mix-blend-mode: soft-light;
+    }
+
+    .bubble:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(0,0,0,0.45); filter: brightness(1.02); }
+    .bubble:active { transform: translateY(0); box-shadow: 0 8px 18px rgba(0,0,0,0.4); filter: brightness(0.98); }
+    .bubble:focus-visible { box-shadow: 0 0 0 4px rgba(122,162,255,0.35), 0 12px 26px rgba(0,0,0,0.45); }
+
+    /* Brand variants */
+    .linkedin { --btn-bg: var(--linkedin); }
+    .github   { --btn-bg: var(--github); }
+    .website  { --btn-bg: var(--website); }
+
+    /* Instagram gradient pill */
+    .instagram {
+      background: linear-gradient(45deg, var(--instagram-1), var(--instagram-2) 45%, var(--instagram-3));
+      color: #fff;
+    }
+
+    /* Optional small icon circles that inherit text color */
+    .icon {
+      width: 22px; height: 22px; display: inline-grid; place-items: center;
+      border-radius: 50%; background: rgba(0,0,0,0.15);
+    }
+
+    .footer {
+      margin-top: 1.25rem;
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .bubble { transition: none; }
+      .bubble:hover, .bubble:active { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card" aria-label="Profile links">
+      <!-- Replace ./assets/me.jpg with the path to your photo in this repo -->
+      <img class="avatar" src="./app/static/media/headshot.jpg" alt="Photo of Nicholas Spruce" width="144" height="144" />
+      <h1>Nicholas Spruce</h1>
+      <p class="subtitle">Computer Engineering @ University of Michigan</p>
+
+      <div class="links" role="list">
+        <a class="bubble linkedin" role="listitem" href="https://www.linkedin.com/in/nicholas-spruce" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <!-- Simple LI icon -->
+          <span class="icon" aria-hidden="true">in</span>
+          <span>Connect on LinkedIn</span>
+        </a>
+
+        <a class="bubble github" role="listitem" href="https://github.com/emeraldspruce" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <span class="icon" aria-hidden="true">GH</span>
+          <span>View my GitHub</span>
+        </a>
+
+        <a class="bubble instagram" role="listitem" href="https://www.instagram.com/emeraldspruce" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <span class="icon" aria-hidden="true">@</span>
+          <span>Follow on Instagram</span>
+        </a>
+
+        <a class="bubble website" role="listitem" href="https://nicholas-spruce.onrender.com" target="_blank" rel="noopener noreferrer" aria-label="Personal website">
+          <span class="icon" aria-hidden="true">✦</span>
+          <span>Visit my website</span>
+        </a>
+      </div>
+
+      <div class="footer">
+        <span>2025 · Nicholas Spruce · Connect With Me!</span>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
