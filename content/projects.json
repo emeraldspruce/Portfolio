@@ -1,5 +1,7 @@
 {
   "page_title": "Projects | Nicholas Spruce",
+  "title": "Projects",
+  "subtitle": "An ordered list of some personal, class, and work projects",
   "projects": [
     {
       "slug": "fluid-sim-pendant",

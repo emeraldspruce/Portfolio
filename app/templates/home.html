@@ -18,7 +18,9 @@
     <section class="bubble bubble-lg" style="margin-top:1rem;">
       <h2 class="section-title">{{ section.heading }}</h2>
       {% if section.subheading %}<p class="section-subtitle">{{ section.subheading }}</p>{% endif %}
-      <p>{{ section.body }}</p>
+      {% for body in section.body %}
+        <p>{{ body }}</p>
+      {% endfor %}
     </section>
   {% endfor %}
 
@@ -26,7 +28,7 @@
   <section class="bubble bubble-lg" style="margin-top:1rem;">
     <h2 class="section-title">Featured Projects</h2>
     <div class="grid grid-2" style="margin-top:.5rem;">
-      {% for p in projects[:4] %}
+      {% for p in projects[:3] %}
         <article class="bubble">
           {% if p.thumbnail %}
             <img src="{{ p.thumbnail }}" alt="{{ p.alt or p.title }}" loading="lazy">

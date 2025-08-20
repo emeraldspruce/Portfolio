@@ -2,6 +2,15 @@
 
 {% block main_body %}
 <main class="site-main">
+  <section class="bubble bubble-lg" style="margin-bottom: 1rem;">
+    <div class="bubble bubble-accent-navy" style="margin-bottom: 1em;">
+    <h1 class="section-title" style="color:#e8f3fb">{{ content.title }}</h1>
+    {% if content.subtitle %}
+      <p class="section-subtitle" style="color:#c3c3c3">{{ content.subtitle }}</p>
+    {% endif %}
+    </div>
+  </section>
+
   <div class="about-alt">
     {% for p in content.projects %}
       {% set side = 'left' if loop.index is odd else 'right' %}

@@ -1,9 +1,28 @@
 {
-    "page_title": "Home | Nicholas Spruce",
-    "title": "Welcome to my Portfolio",
-    "subtitle": "Embedded Systems | Full-Stack Development",
-    "sections": [
-        {"heading": "About Me", "body": "I'm a University of Michigan student studying Computer Engineering. I aspire to do more with my degree than just earn a wage. With my degree I want to affect positive change in this world and work on projects that matter."},
-        {"heading": "Site Methodology", "body": "A resume is nice, but it very quickly drops off old projects and experiences. Its brief nature doesn't give nearly enough detail and history on projects——that I promise——are a lot cooler than a resume blurb will lead you to believe"}
-    ]
+  "page_title": "Home | Nicholas Spruce",
+  "title": "Welcome to my Portfolio",
+  "subtitle": "Embedded Systems | Full-Stack Development",
+  "sections": [
+    {
+      "heading": "About Me",
+      "body": [
+        "I'm a University of Michigan student studying Computer Engineering. I aspire to do more with my degree than just earn a wage. With my degree I want to affect positive change in this world and work on projects that matter.",
+        "I want to do good works and affect positive change, but I don't have one box where I need to make that impact. There are many industries out there where I could see my work being impactful for more than just a nice salary, but also for the good of others. The space industry, nuclear power startups, education programs, or any number of industries have the potential to change lives. And, I would like to be at the center of that change."
+        ]
+    },
+    {
+      "heading": "Why a Portfolio?",
+      "body": [
+        "A resume is nice, but it very quickly drops off old projects and experiences. Its brief nature doesn't give nearly enough detail and history on projects, that I promise, are a lot cooler than a resume blurb will lead you to believe.",
+        "So, with that in mind, I decided to start learning some HTML, CSS, and a bunch of other frontend tools that I discovered I would need later. With my summer internship with SEO (Sponsors for Educational Opportunity) I learned many of these skills through hands-on projects. Those skills made finishing up the website pretty easy and painless compared to earlier in the summer."
+        ]
+    },
+    {
+      "heading": "Reach Out!",
+      "body": [
+        "This heading is fairly self explanatory, but, shoot me an email! I'm always looking for an opporotunity to make a connection, work on a new project, or just chat. Thats actually the primary reason I put together this website. I wanted to put more of myself out there for others to be able to take a look and connect.",
+        "If any of my projects look interesting, if theres anything I could help out with, or if you have any questions at all, I'd love to chat."
+        ]
+    }
+  ]
 }

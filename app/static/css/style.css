@@ -14,7 +14,7 @@
   --coral-600: #ff5757;
 
   /* Neutrals */
-  --bg: #f7f9fb;
+  --bg: #e5e8ec;
   --card: #ffffff;
   --text: #1b262c;
   --muted: #4a5568;
@@ -35,6 +35,9 @@ body {
   font-family: var(--font-sans);
   color: var(--text);
   background: radial-gradient(1200px 800px at 50% -200px, #e9f4fb 0%, var(--bg) 60%, var(--bg) 100%);
+}
+p {
+  white-space: pre-line;
 }
 
 /* =========================
